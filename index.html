@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appartement 3D</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #e9e7e2; font: 14px/1.4 -apple-system, system-ui, sans-serif; color: #2a2926; }
+  canvas { display: block; }
+  #barre { position: fixed; top: 12px; left: 12px; right: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; pointer-events: none; }
+  #barre > * { pointer-events: auto; }
+  button, select, label.case { background: #fffdf8; border: 1px solid #cfcabf; border-radius: 8px; padding: 6px 10px; font: inherit; color: inherit; cursor: pointer; }
+  button.actif { background: #2a2926; color: #fff; border-color: #2a2926; }
+  label.case { display: flex; gap: 6px; align-items: center; }
+  label.essai { border-color: #b98a2e; background: #fff6df; }
+  #aide { position: fixed; bottom: 12px; left: 12px; background: rgba(255,253,248,.9); border-radius: 8px; padding: 6px 10px; max-width: 90vw; }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="barre">
+  <button id="vue-ensemble" class="actif">Vue d'ensemble</button>
+  <button id="vue-dessus">Vue de dessus</button>
+  <button id="vue-visite">Visite à hauteur d'yeux</button>
+  <select id="piece" title="Se placer dans une pièce"></select>
+  <select id="point-de-vue" title="Se placer à un point de vue grand-angle"><option value="">Points de vue…</option></select>
+  <button id="capturer" title="Enregistrer cette vue en image dans le dossier captures/">Capturer</button>
+  <button id="capturer-tout" title="Enregistrer tous les points de vue d'un coup">Tout capturer</button>
+  <select id="variante" title="Comparer les variantes de décoration"></select>
+  <button id="ambiance" title="Basculer entre lumière du jour et luminaires allumés">Ambiance : jour</button>
+  <label class="case"><input type="checkbox" id="cotes" checked> Noms et cotes</label>
+</div>
+<div id="aide"></div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
